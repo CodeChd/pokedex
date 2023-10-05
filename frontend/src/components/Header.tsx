@@ -3,9 +3,9 @@ import { Navbar, Nav, Image, Stack, Form, InputGroup } from "react-bootstrap";
 const Header = () => {
   return (
     <header>
-      <Navbar className="align-items-center ">
+      <Navbar className="py-3">
         <Navbar.Brand>
-          <Stack direction="horizontal" >
+          <Stack direction="horizontal">
             <Image
               src="/images/pokedex-icon.png"
               alt="pokedex-icon"

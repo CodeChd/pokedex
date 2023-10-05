@@ -9,13 +9,13 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import PokemonCard from "./components/PokemonCard";
+import Home from "./Pages/Home.tsx";
 
 // ROUTES
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<App />}>
-      <Route index={true} element={<PokemonCard />} />
+      <Route index={true} element={<Home />} />
     </Route>
   )
 );
