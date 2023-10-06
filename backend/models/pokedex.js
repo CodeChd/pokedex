@@ -1,30 +1,51 @@
 import mongoose from "mongoose";
 
-const pokedexEntrySchema = new mongoose.Schema({
-  name: {
-    type: String, 
-    required: true,
+const pokedexEntrySchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: [String],
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    base: {
+      HP: {
+        type: Number,
+        required: true,
+      },
+      Attack: {
+        type: Number,
+        required: true,
+      },
+      Defense: {
+        type: Number,
+        required: true,
+      },
+      "Sp. Attack": {
+        type: Number,
+        required: true,
+      },
+      "Sp. Defense": {
+        type: Number,
+        required: true,
+      },
+      Speed: {
+        type: Number,
+        required: true,
+      },
+    },
   },
-  id: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
-  type: {
-    type: [String],
-    required: true,
-  },
-  base: {
-    HP: Number,
-    Attack: Number,
-    Defense: Number,
-    'Sp. Attack': Number,
-    'Sp. Defense': Number,
-    Speed: Number,
-  },
-  // Add other fields as needed
-});
+  {
+    timestamps: true,
+  }
+);
 
-const Pokedex = mongoose.model('PokedexEntry', pokedexEntrySchema);
+const Pokedex = mongoose.model("Pokedex", pokedexEntrySchema);
 
 export default Pokedex;
