@@ -20,6 +20,8 @@ const ImportData = async () => {
       name: item.name.english,
       type: item.type,
       base: item.base,
+      // Generate the image path based on the ID
+      image: `./images/${String(item.id).padStart(3, "0")}.png`,
     }));
 
     const typesModified = typesData.map((item) => item.english);
