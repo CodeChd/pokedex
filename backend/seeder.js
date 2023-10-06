@@ -1,12 +1,9 @@
 import { connectDB } from "./config/db.js";
 import Pokedex from "./models/pokedex.js";
 import Type from "./models/types.js";
-import pokedex from "./data/pokemonLists/pokedex.json";
-import types from "./data/pokemonTypes/types.json";
-
 // JSON DATA
-const pokdexData = JSON.parse(pokedex);
-const typesData = JSON.parse(types);
+import pokedexJson from "./data/pokedex.json";
+import typesJson from "./data/types.json";
 
 connectDB(); // connect to database
 
@@ -16,7 +13,7 @@ const ImportData = async () => {
     await Type.deleteMany({});
 
     //return new array with modified json data
-    const pokedexModified = pokdexData.map((item) => ({
+    const pokedexModified = pokedexJson.map((item) => ({
       name: item.name.english,
       type: item.type,
       base: item.base,
@@ -24,7 +21,7 @@ const ImportData = async () => {
       image: `./images/${String(item.id).padStart(3, "0")}.png`,
     }));
 
-    const typesModified = typesData.map((item) => item.english);
+    const typesModified = typesJson.map((item) => item.english);
 
     //Upload to db
     await Pokedex.insertMany(pokedexModified);
@@ -41,6 +38,7 @@ const destroyData = async () => {
   try {
     await Pokedex.deleteMany({});
     await Type.deleteMany({});
+    console.log("Data Destroyed");
   } catch (error) {
     console.log(error);
     process.exit(1);

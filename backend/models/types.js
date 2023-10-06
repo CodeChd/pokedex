@@ -1,9 +1,12 @@
 import mongoose from "mongoose";
 
-const typeSchema = new mongoose.Schema({
-  type: String,
+const typesSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    required: true,
+  },
 });
 
-const Type = mongoose.model("Type", typeSchema);
+const Type = mongoose.model("Type", typesSchema);
 
 export default Type;
