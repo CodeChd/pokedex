@@ -1,6 +1,5 @@
 import { Row, Col } from "react-bootstrap";
 import pokedexJson from "../data/pokedex.json";
-import typesJson from "../data/types.json";
 import PokemonCard from "../components/PokemonCard";
 
 const pokedexModified = pokedexJson.map((item) => {
@@ -12,10 +11,6 @@ const pokedexModified = pokedexJson.map((item) => {
     // Generate the image path based on the ID
     image: `/images/${String(item.id).padStart(3, "0")}.png`,
   };
-});
-
-const typesModified = typesJson.map((item) => {
-  return { type: item.english };
 });
 
 const Home = () => {
