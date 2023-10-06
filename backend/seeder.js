@@ -18,7 +18,7 @@ const ImportData = async () => {
         type: item.type,
         base: item.base,
         // Generate the image path based on the ID
-        image: `./images/${String(item.id).padStart(3, "0")}.png`,
+        image: `/images/${String(item.id).padStart(3, "0")}.png`,
       };
     });
 

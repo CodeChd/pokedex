@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/index.css";
+import "./assets/main.css";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./Pages/Home.tsx";
+import Home from "./Pages/Home.jsx";
 
 // ROUTES
 const router = createBrowserRouter(
@@ -20,7 +20,7 @@ const router = createBrowserRouter(
   )
 );
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
