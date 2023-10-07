@@ -4,9 +4,7 @@ dotenv.config(); // use .env value - MONGO_URI
 
 export const connectDB = async () => {
   try {
-    await mongoose.connect(
-      process.env.MOGO_URI || "mongodb://127.0.0.1:27017/pokedex"
-    );
+    await mongoose.connect("mongodb://127.0.0.1:27017/pokedex");
   } catch (error) {
     console.log(error);
     process.exit(1);

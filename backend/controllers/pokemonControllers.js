@@ -10,10 +10,23 @@ const getPokemons = asyncHandler(async (req, res) => {
   const keyword = req.query.keyword
     ? { name: { $regex: req.query.keyword, $options: "i" } }
     : {};
+  const types = req.query.type
+    ? {
+        type: {
+          $in: Array.isArray(req.query.type)
+            ? req.query.type
+            : [req.query.type],
+        },
+      }
+    : {};
 
-  const count = await Pokedex.countDocuments({ ...keyword }).maxTimeMS(15000);
+  const filters = { ...keyword, ...types };
 
-  const pokemons = await Pokedex.find({ ...keyword })
+  const count = await Pokedex.countDocuments({
+    ...filters,
+  }).maxTimeMS(15000);
+
+  const pokemons = await Pokedex.find({ ...filters })
     .limit(pageSize)
     .skip(pageSize * (page - 1))
     .maxTimeMS(15000);

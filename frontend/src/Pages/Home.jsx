@@ -11,14 +11,24 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { pageNumber, keyword } = useParams();
+  const { pageNumber, keyword, type } = useParams();
 
   //pokemon data
-  const { data, isLoading } = useGetPokemonsQuery({ pageNumber, keyword });
+  const { data, isLoading } = useGetPokemonsQuery({
+    type,
+    pageNumber,
+    keyword,
+  });
 
+  // Handle search and pagination
   const handlePageChange = (selectedPage) => {
     if (keyword) {
       navigate(`/search/${keyword}/page/${selectedPage + 1}`);
+    } else if (type) {
+      navigate(`/type/${type}/page/${selectedPage + 1}`);
+    } 
+    else if (keyword && type) {
+      navigate(`/type/${type}/page/${selectedPage + 1}`);
     } else {
       navigate(`/page/${selectedPage + 1}`);
     }

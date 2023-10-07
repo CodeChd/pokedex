@@ -12,10 +12,32 @@ export const colorType = {
   Water: "#6390F0",
   Grass: "#7AC74C",
   Psychic: "#F95587",
+  Electric: "#2563eb",
   Ice: "#96D9D6",
   Dragon: "#6F35FC",
   Dark: "#705746",
   Fairy: "#D685AD",
+};
+
+export const typeIcons = {
+  Normal: "/icons/normal.png",
+  Fighting: "/icons/fighting.png",
+  Flying: "/icons/flying.png",
+  Poison: "/icons/poison.png",
+  Ground: "/icons/ground.png",
+  Rock: "/icons/rock.png",
+  Bug: "/icons/bug.png",
+  Ghost: "/icons/ghost.png",
+  Steel: "/icons/steel.png",
+  Fire: "/icons/fire.png",
+  Water: "/icons/water.png",
+  Grass: "/icons/grass.png",
+  Psychic: "/icons/psychic.png",
+  Ice: "/icons/ice.png",
+  Dragon: "/icons/dragon.png",
+  Dark: "/icons/dark.png",
+  Fairy: "/icons/fairy.png",
+  Electric: "/icons/electric.png",
 };
 
 export const POKEMON_URL = "/api/pokemon";

@@ -67,7 +67,7 @@ h6 {
 /* CSS RESET */
 
 main {
-  min-height: 80vh;
+  height: 80vh;
 }
 
 h4:hover {

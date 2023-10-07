@@ -1,15 +1,8 @@
-import {
-  Navbar,
-  Nav,
-  Image,
-  Stack,
-  Container,
-} from "react-bootstrap";
-
+import { Navbar, Nav, Image, Stack, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Search from "./Search";
 
 const Header = () => {
-
   return (
     <header>
       <Navbar className="py-3" collapseOnSelect>
@@ -31,15 +24,15 @@ const Header = () => {
             </Stack>
           </Navbar.Brand>
           <Nav className="ms-4 text-dark ">
-            <Nav.Link>
+            <Nav.Link as={Link} to='/'>
               <h4>Home</h4>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link as={Link} to='/type'>
               <h4>Type</h4>
             </Nav.Link>
           </Nav>
           <Nav className="ms-auto">
-          <Search/>
+            <Search />
           </Nav>
         </Container>
       </Navbar>

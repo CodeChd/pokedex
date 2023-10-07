@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Search = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Search = () => {
     if (keyword.trim()) {
       navigate(`/search/${keyword}`);
       setKeyword("");
+      toast.success(`Search results for ${keyword.trim()}`);
     } else {
       navigate("/");
     }

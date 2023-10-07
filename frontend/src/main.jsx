@@ -12,17 +12,22 @@ import {
 import Home from "./Pages/Home.jsx";
 import { Provider } from "react-redux";
 import store from "./store.js";
+import Types from "./Pages/Types.jsx";
 
-// ROUTES 
+// ROUTES
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<App />}>
       <Route index={true} element={<Home />} />
+      <Route path="/type" element={<Types />} />
 
       {/* pagination & search */}
       <Route path="/search/:keyword" element={<Home />} />
       <Route path="/page/:pageNumber" element={<Home />} />
       <Route path="/search/:keyword/page/:pageNumber" element={<Home />} />
+      <Route path="/type/:type" element={<Home />} />
+      <Route path="/type/:type/page/:pageNumber" element={<Home />} />
+      
     </Route>
   )
 );

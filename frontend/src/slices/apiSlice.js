@@ -7,9 +7,10 @@ const apiSlice = createApi({
   tagTypes: ["Pokemon"],
   endpoints: (builder) => ({
     getPokemons: builder.query({
-      query: ({ keyword, pageNumber }) => ({
+      query: ({ keyword, pageNumber, type }) => ({
         url: POKEMON_URL,
         params: {
+          type,
           keyword,
           pageNumber,
         },
