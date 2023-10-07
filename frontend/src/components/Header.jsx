@@ -3,12 +3,13 @@ import {
   Nav,
   Image,
   Stack,
-  Form,
-  InputGroup,
   Container,
 } from "react-bootstrap";
 
+import Search from "./Search";
+
 const Header = () => {
+
   return (
     <header>
       <Navbar className="py-3" collapseOnSelect>
@@ -38,17 +39,7 @@ const Header = () => {
             </Nav.Link>
           </Nav>
           <Nav className="ms-auto">
-            <InputGroup
-              style={{ height: "50px", width: "350px" }}
-              className="rounded"
-            >
-              <InputGroup.Text id="basic-addon1">🔍</InputGroup.Text>
-              <Form.Control
-                placeholder="Search by name (e.g., Bulbasaur)"
-                aria-label="Search by name (e.g., Bulbasaur)"
-                aria-describedby="basic-addon1"
-              />
-            </InputGroup>
+          <Search/>
           </Nav>
         </Container>
       </Navbar>

@@ -7,10 +7,13 @@ import Pokedex from "../models/pokedex.js";
 const getPokemons = asyncHandler(async (req, res) => {
   const pageSize = 8;
   const page = Number(req.query.pageNumber) || 1;
+  const keyword = req.query.keyword
+    ? { name: { $regex: req.query.keyword, $options: "i" } }
+    : {};
 
-  const count = await Pokedex.countDocuments({}).maxTimeMS(15000);
+  const count = await Pokedex.countDocuments({ ...keyword }).maxTimeMS(15000);
 
-  const pokemons = await Pokedex.find({})
+  const pokemons = await Pokedex.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1))
     .maxTimeMS(15000);

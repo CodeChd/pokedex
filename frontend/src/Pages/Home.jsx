@@ -17,7 +17,11 @@ const Home = () => {
   const { data, isLoading } = useGetPokemonsQuery({ pageNumber, keyword });
 
   const handlePageChange = (selectedPage) => {
-    navigate(`/page/${selectedPage + 1}`);
+    if (keyword) {
+      navigate(`/search/${keyword}/page/${selectedPage + 1}`);
+    } else {
+      navigate(`/page/${selectedPage + 1}`);
+    }
   };
 
   return (
