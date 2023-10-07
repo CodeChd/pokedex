@@ -1,9 +1,17 @@
-import { Navbar, Nav, Image, Stack, Form, InputGroup, Container } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  Image,
+  Stack,
+  Form,
+  InputGroup,
+  Container,
+} from "react-bootstrap";
 
 const Header = () => {
   return (
     <header>
-      <Navbar className="py-3" collapseOnSelect >
+      <Navbar className="py-3" collapseOnSelect>
         <Container>
           <Navbar.Brand>
             <Stack direction="horizontal">
@@ -36,8 +44,8 @@ const Header = () => {
             >
               <InputGroup.Text id="basic-addon1">🔍</InputGroup.Text>
               <Form.Control
-                placeholder="Search for Pokemon"
-                aria-label="Search for Pokemon"
+                placeholder="Search by name (e.g., Bulbasaur)"
+                aria-label="Search by name (e.g., Bulbasaur)"
                 aria-describedby="basic-addon1"
               />
             </InputGroup>

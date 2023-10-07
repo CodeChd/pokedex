@@ -1,9 +1,9 @@
 import { connectDB } from "./config/db.js";
 import Pokedex from "./models/pokedex.js";
 import Type from "./models/types.js";
+
 // JSON DATA
 import pokedexJson from "./data/pokedex.json" assert { type: "json" };
-import typesJson from "./data/types.json" assert { type: "json" };
 
 const ImportData = async () => {
   try {
@@ -22,13 +22,8 @@ const ImportData = async () => {
       };
     });
 
-    const typesModified = typesJson.map((item) => {
-      return { type: item.english };
-    });
-
     //Upload to db
     await Pokedex.insertMany(pokedexModified);
-    await Type.insertMany(typesModified);
 
     console.log("Data Imported");
     process.exit();
