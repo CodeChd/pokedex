@@ -4,7 +4,7 @@ import { colorType } from "../constants";
 
 const PokemonCard = ({ pokemons }) => {
   return (
-    <Card className="text-center gap-2 " shadow-sm="true">
+    <Card className="text-center gap-2 p-2" shadow-sm="true">
       <Card.Title className="mt-2">
         <strong>{pokemons.name}</strong>
         <p className="mt-2 " style={{ color: "grey" }}>

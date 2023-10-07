@@ -5,7 +5,7 @@ import Search from "./Search";
 const Header = () => {
   return (
     <header>
-      <Navbar className="py-3" collapseOnSelect>
+      <Navbar className="py-3" expand="lg" collapseOnSelect>
         <Container>
           <Navbar.Brand>
             <Stack direction="horizontal">
@@ -23,17 +23,20 @@ const Header = () => {
               />
             </Stack>
           </Navbar.Brand>
-          <Nav className="ms-4 text-dark ">
-            <Nav.Link as={Link} to='/'>
-              <h4>Home</h4>
-            </Nav.Link>
-            <Nav.Link as={Link} to='/type'>
-              <h4>Type</h4>
-            </Nav.Link>
-          </Nav>
-          <Nav className="ms-auto">
-            <Search />
-          </Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-4 text-dark ">
+              <Nav.Link as={Link} to="/">
+                <h4>Home</h4>
+              </Nav.Link>
+              <Nav.Link as={Link} to="/type">
+                <h4>Type</h4>
+              </Nav.Link>
+            </Nav>
+            <Nav className="ms-auto">
+              <Search />
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </header>
