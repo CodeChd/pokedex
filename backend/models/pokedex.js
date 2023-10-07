@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const pokedexEntrySchema = new mongoose.Schema(
   {
+    pokemonId: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,

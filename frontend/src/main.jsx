@@ -10,21 +10,27 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
-import { PokemonProvider } from "./context/Context.jsx";
+import { Provider } from "react-redux";
+import store from "./store.js";
 
-// ROUTES
+// ROUTES 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<App />}>
       <Route index={true} element={<Home />} />
+
+      {/* pagination & search */}
+      <Route path="/search/:keyword" element={<Home />} />
+      <Route path="/page/:pageNumber" element={<Home />} />
+      <Route path="/search/:keyword/page/:pageNumber" element={<Home />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <PokemonProvider>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </PokemonProvider>
+    </Provider>
   </React.StrictMode>
 );

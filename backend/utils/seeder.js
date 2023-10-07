@@ -1,9 +1,9 @@
-import { connectDB } from "./config/db.js";
-import Pokedex from "./models/pokedex.js";
-import Type from "./models/types.js";
+import { connectDB } from "../config/db.js";
+import Pokedex from "../models/pokedex.js";
+import Type from "../models/types.js";
 
 // JSON DATA
-import pokedexJson from "./data/pokedex.json" assert { type: "json" };
+import pokedexJson from "../data/pokedex.json" assert { type: "json" };
 
 const ImportData = async () => {
   try {
@@ -14,6 +14,7 @@ const ImportData = async () => {
     //return new array with modified json data
     const pokedexModified = pokedexJson.map((item) => {
       return {
+        pokemonId: item.id,
         name: item.name.english,
         type: item.type,
         base: item.base,

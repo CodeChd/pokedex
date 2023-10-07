@@ -4,11 +4,11 @@ import { colorType } from "../constants";
 
 const PokemonCard = ({ pokemons }) => {
   return (
-    <Card className="text-center gap-2 " shadow-sm>
+    <Card className="text-center gap-2 " shadow-sm="true">
       <Card.Title className="mt-2">
         <strong>{pokemons.name}</strong>
         <p className="mt-2 " style={{ color: "grey" }}>
-          <em>#{String(pokemons.id).padStart(3, "0")}</em>
+          <em>#{String(pokemons.pokemonId).padStart(3, "0")}</em>
         </p>
       </Card.Title>
       <Card.Img
@@ -16,14 +16,14 @@ const PokemonCard = ({ pokemons }) => {
         variant="top"
         src={pokemons.image}
         alt={pokemons.name}
-        fluid
         style={{ objectFit: "cover", width: "130px", margin: "auto" }}
       />
 
       <Card.Body>
         <Stack direction="horizontal" gap={2} className="d-flex">
-          {pokemons.type.map((item) => (
+          {pokemons.type.map((item, index) => (
             <Button
+              key={index}
               className="flex-grow-1 "
               style={{ backgroundColor: colorType[item] }}
             >

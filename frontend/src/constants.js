@@ -17,3 +17,5 @@ export const colorType = {
   Dark: "#705746",
   Fairy: "#D685AD",
 };
+
+export const POKEMON_URL = "/api/pokemon";

@@ -8,7 +8,7 @@ const getPokemons = asyncHandler(async (req, res) => {
   const pageSize = 8;
   const page = Number(req.query.pageNumber) || 1;
 
-  const count = await Pokedex.countDocuments().maxTimeMS(15000);
+  const count = await Pokedex.countDocuments({}).maxTimeMS(15000);
 
   const pokemons = await Pokedex.find({})
     .limit(pageSize)
