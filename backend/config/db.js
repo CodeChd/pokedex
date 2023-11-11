@@ -1,12 +1,15 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-dotenv.config(); // use .env value - MONGO_URI
+dotenv.config();
+
+const env = process.env.MOGO_URI;
 
 export const connectDB = async () => {
   try {
-    await mongoose.connect(
-      process.env.MOGO_URI || "mongodb://127.0.0.1:27017/pokedex"
-    );
+    await mongoose.connect(env, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
   } catch (error) {
     console.log(error);
     process.exit(1);
