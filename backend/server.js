@@ -1,7 +1,8 @@
 import express from "express";
-import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import path from "path";
 dotenv.config();
+
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
 import pokemonRoutes from "./routes/pokemonRoutes.js";
 import { connectDB } from "./config/db.js";
@@ -12,9 +13,8 @@ connectDB(); //connect to db
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser);
 
-app.use("/api/pokemon", pokemonRoutes);
+app.use("/api/pokemon", pokemonRoutes);       
 
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
